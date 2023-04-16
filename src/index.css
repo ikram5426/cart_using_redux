@@ -144,9 +144,9 @@ nav svg {
   color: var(--clr-white);
 }
 .amount-container {
-  position: absolute;
-  top: -0.6rem;
-  right: -0.6rem;
+  position: relative;
+  top: -1rem;
+  right: 26.2vh;
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
