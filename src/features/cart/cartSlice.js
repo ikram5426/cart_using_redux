@@ -24,21 +24,31 @@ const cartSlice = createSlice({
     increaseQty: (state, action) => {
       const itemId = action.payload;
       const cartItem = state.cartItems.find((item) => {
-        return (item.id = itemId);
+        return (item.id === itemId);
       });
       cartItem.amount += 1;
     },
     decreaseQty: (state, action) => {
       const itemId = action.payload;
       const cartItem = state.cartItems.find((item) => {
-        return (item.id = itemId);
+        return (item.id === itemId);
       });
       cartItem.amount -= 1;
     },
+    calculateTotal:(state,action)=>{
+      let qty=0;
+      let total=0;
+      state.cartItems.forEach((item)=>{
+        qty += item.amount
+        total+=item.amount*item.price 
+      })
+      state.itemsQty=qty
+      state.totalAmount=total.toFixed(2)
+    }
   },
 });
 
-export const { clearCart, removeItem, increaseQty, decreaseQty } =
+export const { clearCart, removeItem, increaseQty, decreaseQty,calculateTotal } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
