@@ -1,7 +1,7 @@
 import React from 'react' 
 import CartItem from './CartItem'
 import { useSelector,useDispatch } from "react-redux";
-import { clearCart } from '../features/cart/cartSlice';
+import { openModal } from '../features/modal/modalSlice';
 
 
 const Cart = () => {
@@ -40,7 +40,8 @@ else{
           <button
             className='btn clear-btn'
             onClick={() => {
-              dispatch(clearCart());
+              dispatch(openModal());
+
             }}
           >
             Clear Cart
